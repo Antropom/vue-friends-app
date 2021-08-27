@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import sanity from "@/client";
-import imageUrlBuilder from "@sanity/image-url";
+import sanity from '@/client'
+import imageUrlBuilder from '@sanity/image-url'
 
-const imageBuilder = imageUrlBuilder(sanity);
+const imageBuilder = imageUrlBuilder(sanity)
 const query = `*[_type == "personalDetails"]{
   _id,
   firstname,
@@ -45,47 +45,47 @@ const query = `*[_type == "personalDetails"]{
   url
 }
 }
-}[0...50]`;
+}[0...50]`
 
 export default {
-  name: "Home",
+  name: 'Home',
 
   data() {
     return {
       loading: true,
 
       personalDetails: [],
-    };
+    }
   },
 
   created() {
-    this.fetchData();
+    this.fetchData()
   },
 
   methods: {
     imageUrlFor(source) {
-      return imageBuilder.image(source);
+      return imageBuilder.image(source)
     },
 
     fetchData() {
-      this.error = this.personalDetail = null;
+      this.error = this.personalDetail = null
 
-      this.loading = true;
+      this.loading = true
 
       sanity.fetch(query).then(
         (personalDetails) => {
-          this.loading = false;
+          this.loading = false
 
-          this.personalDetails = personalDetails;
+          this.personalDetails = personalDetails
         },
 
         (error) => {
-          this.error = error;
+          this.error = error
         }
-      );
+      )
     },
   },
-};
+}
 </script>
 
 <style scoped>

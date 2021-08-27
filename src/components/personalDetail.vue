@@ -6,9 +6,9 @@
       {{ error }}
     </div>
 
-     <router-link :to="'/'">
+    <router-link :to="'/'">
       <p class="back">&#x3c; Back</p>
-     </router-link>
+    </router-link>
 
     <div class="main" v-if="personalDetail">
       <div class="container">
@@ -179,6 +179,6 @@ export default {
   color: #000;
 }
 .main-info p span::after {
-  content: ":";
+  content: ':';
 }
 </style>
